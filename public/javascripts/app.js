@@ -11,3 +11,13 @@ app.config(['$routeProvider', function($routeProvider) {
     controller: 'ApplicationController'
   })
 }]);
+
+app.controller('PostsController', function ($scope, $http) {
+  $scope.getPosts = function () {
+    $scope.posts;
+    $http.get('/api/posts').then(function (posts) {
+      console.log(posts);
+      $scope.posts = posts;
+    })
+  }
+})
